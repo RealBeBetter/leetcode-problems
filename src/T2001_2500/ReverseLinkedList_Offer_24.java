@@ -31,11 +31,10 @@ public class ReverseLinkedList_Offer_24 {
         }
         // 设置两个节点，分别表示当前节点的前一个以及后一个（原链表中的顺序）
         ListNode pre = null;
-        ListNode nex = null;
         // 当前链表指针使用 head 即可
         while (head != null) {
             // 保存当前节点的下一个节点，1->2(nex)->3->4->5->NULL，保存 2 节点
-            nex = head.next;
+            ListNode nex = head.next;
             // 前面一个节点作为反转之后的下一个节点，1->2->3->4->5->NULL，变成 1->null(pre)
             head.next = pre;
             // 保存下一个要挂在 1 之前的节点，2
