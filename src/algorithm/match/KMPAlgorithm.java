@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.match;
 
 import java.util.ArrayList;
 import java.util.List;

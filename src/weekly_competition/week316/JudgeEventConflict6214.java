@@ -1,4 +1,4 @@
-package competition;
+package weekly_competition.week316;
 
 /**
  * https://leetcode.cn/contest/weekly-contest-316/problems/determine-if-two-events-have-conflict/
@@ -39,11 +39,13 @@ package competition;
  * startTime1 <= endTime1
  * startTime2 <= endTime2
  * 所有事件的时间都按照 HH:MM 格式给出
+ * <p>
+ * https://leetcode.cn/problems/determine-if-two-events-have-conflict/
  *
  * @author Real
  * Date: 2022/10/23 15:35
  */
-public class JudgeEventConflict_6214 {
+public class JudgeEventConflict6214 {
 
     public static void main(String[] args) {
         String[] strings1 = {"10:00", "11:00"};

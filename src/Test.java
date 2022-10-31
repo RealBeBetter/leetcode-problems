@@ -4,8 +4,8 @@ import java.util.LinkedHashSet;
  * @ author : Real
  * @ date : 2021/11/12 15:18
  * @ description :
- *  输入样例："fbccdeeffeeeacb"
- *     输出结果："fbcdea"（去重并保持原来顺序）
+ * 输入样例："fbccdeeffeeeacb"
+ * 输出结果："fbcdea"（去重并保持原来顺序）
  */
 public class Test {
 
