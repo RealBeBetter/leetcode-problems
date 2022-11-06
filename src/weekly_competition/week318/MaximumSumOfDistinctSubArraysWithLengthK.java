@@ -2,6 +2,7 @@ package weekly_competition.week318;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -46,8 +47,8 @@ import java.util.Set;
 public class MaximumSumOfDistinctSubArraysWithLengthK {
 
     public static void main(String[] args) {
-        int[] nums = {1, 1, 1};
-        int k = 2;
+        int[] nums = {1, 1, 1, 7, 8, 9};
+        int k = 3;
         MaximumSumOfDistinctSubArraysWithLengthK test = new MaximumSumOfDistinctSubArraysWithLengthK();
         System.out.println(test.maximumSubarraySum(nums, k));
     }
@@ -64,55 +65,21 @@ public class MaximumSumOfDistinctSubArraysWithLengthK {
             return 0;
         }
         long sum = 0;
-        int length = nums.length;
-        for (int i = 0; i < length; i++) {
-            int end = i + k - 1;
-            if (end >= length) {
-                return sum;
+        long tempSum = 0;
+        int index = 0;
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            while (set.size() >= k || set.contains(num)) {
+                set.remove(nums[index]);
+                tempSum -= nums[index++];
             }
-            // 需要剪枝求出下一步能跨越的距离，类似于 KMP 算法
-            int distance = canCrossDistance(nums, i, end);
-            if (distance != 0) {
-                i += distance - 1;
-            } else {
-                long tempSum = this.calSubarraySum(nums, i, end);
+            set.add(num);
+            tempSum += num;
+            if (set.size() == k) {
                 sum = Math.max(tempSum, sum);
             }
         }
         return sum;
-    }
-
-    public long calSubarraySum(int[] nums, int begin, int end) {
-        long sum = 0;
-        for (int i = begin; i <= end; i++) {
-            sum += nums[i];
-        }
-        return sum;
-    }
-
-    /**
-     * 算出能跨越的距离
-     *
-     * @param nums 数组
-     * @return 步长
-     */
-    public int canCrossDistance(int[] nums, int begin, int end) {
-        // 两个相同元素之间的距离小于k，能跨越的步长就是 nums - (end所在顺序)
-        Set<Integer> set = new HashSet<>();
-        for (int i = begin; i <= end; i++) {
-            if (set.contains(nums[i])) {
-                return set.size();
-            } else {
-                set.add(nums[i]);
-            }
-        }
-        return 0;
-    }
-
-    public boolean containsRepeatNum(int[] nums) {
-        Set<Integer> set = new HashSet<>();
-        Arrays.stream(nums).forEach(set::add);
-        return set.size() != nums.length;
     }
 
 }
