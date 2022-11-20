@@ -1,8 +1,6 @@
 package weekly_competition.week320;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * 给你一个 二叉搜索树 的根节点 root ，和一个由正整数组成、长度为 n 的数组 queries 。
@@ -40,16 +38,41 @@ public class ClosestNodesQueriesInABinarySearchTree {
 
     }
 
+    TreeSet<Integer> set;
+
+    public List<List<Integer>> closestNodes(TreeNode root, List<Integer> queries) {
+        set = new TreeSet<>();
+        ergodic(root);
+        List<List<Integer>> ans = new ArrayList<>();
+        for (int query : queries) {
+            Integer min = set.floor(query);
+            Integer max = set.ceiling(query);
+            ans.add(Arrays.asList(min == null ? -1 : min, max == null ? -1 : max));
+        }
+        return ans;
+    }
+
+    private void ergodic(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        set.add(root.val);
+        this.ergodic(root.left);
+        this.ergodic(root.right);
+    }
+
     /**
      * 找出小于等于的最大值，和大于等于的最小值
      * mini 是树中小于等于 queries[i] 的 最大值 。如果不存在这样的值，则使用 -1 代替。
      * maxi 是树中大于等于 queries[i] 的 最小值 。如果不存在这样的值，则使用 -1 代替。
+     * <p>
+     * 此方法会超时
      *
      * @param root    根节点
      * @param queries 查询数组
      * @return 多层List，answer[i] = [mini, maxi]
      */
-    public List<List<Integer>> closestNodes(TreeNode root, List<Integer> queries) {
+    public List<List<Integer>> closestNodesOverTime(TreeNode root, List<Integer> queries) {
         List<List<Integer>> tree = new LinkedList<>();
         if (root == null || queries == null || queries.size() == 0) {
             return new ArrayList<>();
