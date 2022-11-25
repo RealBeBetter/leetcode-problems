@@ -56,13 +56,13 @@ public class MaximumSwap_670 {
         int indexMax = length - 1;
         int res = num;
         for (int i = length - 1; i >= 0; i--) {
-            int temp = Integer.parseInt(String.valueOf(charArray[i]));
-            if (temp > Integer.parseInt(String.valueOf(charArray[indexMax]))) {
-                indexMax = i;
+            if (charArray[i] < charArray[indexMax]) {
                 swap(charArray, i, indexMax);
                 String str = new String(charArray);
                 res = Math.max(Integer.parseInt(str), res);
                 swap(charArray, i, indexMax);
+            } else if (charArray[i] > charArray[indexMax]){
+                indexMax = i;
             }
         }
         return res;
