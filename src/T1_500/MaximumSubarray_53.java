@@ -22,16 +22,17 @@ package T1_500;
  * 示例 5：
  * 输入：nums = [-100000]
  * 输出：-100000
- *
+ * <p>
  * 提示：
  * 1 <= nums.length <= 105
  * -104 <= nums[i] <= 104
- *
+ * <p>
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/maximum-subarray
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class MaximumSubarray_53 {
+
     public int maxSubArray(int[] nums) {
         int maxCount = nums[0];
         int ans = maxCount;
@@ -46,5 +47,27 @@ public class MaximumSubarray_53 {
             }
         }
         return ans;
+    }
+
+    public static int getSubArrayMaxCount(int[] array) {
+        // 利用迭代算法，推算出最大的和
+        if (array.length == 0) {
+            return 0;
+        }
+        int maxCount = array[0];
+        int ans = maxCount;
+        for (int i = 1; i < array.length; i++) {
+            maxCount = Math.max(maxCount + array[i], array[i]);
+            if (maxCount > ans) {
+                ans = maxCount;
+            }
+        }
+        return ans;
+    }
+
+    public static void main(String[] args) {
+        int[] array = {5, 3, -10, 2, -1, 6, 8};
+        int maxCount = getSubArrayMaxCount(array);
+        System.out.println(maxCount);
     }
 }
