@@ -76,7 +76,7 @@ class MyStack {
     }
 
     public Integer[] toArray() {
-        return data.toArray(Integer[]::new);
+        return data.toArray(new Integer[0]);
     }
 }
 
