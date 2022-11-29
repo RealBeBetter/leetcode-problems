@@ -1,5 +1,7 @@
 package T1_500;
 
+import common.ListNode;
+
 /**
  * @ author : Real
  * @ date : 2021/11/5 22:21

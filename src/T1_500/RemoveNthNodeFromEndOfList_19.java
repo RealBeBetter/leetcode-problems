@@ -1,6 +1,6 @@
 package T1_500;
 
-import java.util.IdentityHashMap;
+import common.ListNode;
 
 /**
  * @ author : Real
@@ -27,23 +27,6 @@ import java.util.IdentityHashMap;
  * 链接：https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode() {
-    }
-
-    ListNode(int val) {
-        this.val = val;
-    }
-
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
-}
-
 public class RemoveNthNodeFromEndOfList_19 {
     public static ListNode removeNthFromEnd(ListNode head, int n) {
         // 利用一次遍历实现删除目标节点，快慢指针
@@ -90,9 +73,6 @@ public class RemoveNthNodeFromEndOfList_19 {
     }
 
     public static void main(String[] args) {
-//        ListNode node5 = new ListNode(5);
-//        ListNode node4 = new ListNode(4, node5);
-//        ListNode node3 = new ListNode(3, node4);
         ListNode node2 = new ListNode(2);
         ListNode node1 = new ListNode(1, node2);
         ListNode listNode = removeNthFromEnd(node1, 2);

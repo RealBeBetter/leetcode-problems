@@ -1,5 +1,7 @@
 package weekly_competition.week321;
 
+import common.ListNode;
+
 import java.util.LinkedList;
 
 /**
@@ -31,7 +33,7 @@ public class RemoveNodesFromLinkedList {
     public static void main(String[] args) {
         RemoveNodesFromLinkedList test = new RemoveNodesFromLinkedList();
         int[] array = {5, 2, 13, 3, 8};
-        ListNode head = test.constructLinkedList(array);
+        ListNode head = ListNode.initList(array);
         ListNode listNode = test.removeNodes(head);
         while (listNode != null) {
             System.out.println(listNode.val);
@@ -65,34 +67,4 @@ public class RemoveNodesFromLinkedList {
         p.next = null;
         return newHead.next;
     }
-
-    public ListNode constructLinkedList(int[] array) {
-        ListNode head = new ListNode(array[0]);
-        ListNode temp = head;
-        for (int i = 1; i < array.length; i++) {
-            temp.next = new ListNode(array[i]);
-            temp = temp.next;
-        }
-        return head;
-    }
-
 }
-
-
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode() {
-    }
-
-    ListNode(int val) {
-        this.val = val;
-    }
-
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
-}
-

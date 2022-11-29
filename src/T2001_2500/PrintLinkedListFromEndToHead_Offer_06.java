@@ -1,5 +1,7 @@
 package T2001_2500;
 
+import common.ListNode;
+
 import java.util.Stack;
 
 /**

@@ -1,5 +1,7 @@
 package T1501_2000;
 
+import common.ListNode;
+
 /**
  * @ author : Real
  * @ date : 2021/11/1 21:13
@@ -26,12 +28,12 @@ package T1501_2000;
 public class SwappingNodesInALinkedList_1721 {
     /**
      * Definition for singly-linked list.
-     * public class ListNode {
+     * public class common.ListNode {
      * int val;
-     * ListNode next;
-     * ListNode() {}
-     * ListNode(int val) { this.val = val; }
-     * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+     * common.ListNode next;
+     * common.ListNode() {}
+     * common.ListNode(int val) { this.val = val; }
+     * common.ListNode(int val, common.ListNode next) { this.val = val; this.next = next; }
      * }
      */
     public static ListNode swapNodes(ListNode head, int k) {
@@ -88,22 +90,5 @@ public class SwappingNodesInALinkedList_1721 {
             System.out.println(listNode.val);
             listNode = listNode.next;
         }
-    }
-}
-
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode() {
-    }
-
-    ListNode(int val) {
-        this.val = val;
-    }
-
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
     }
 }

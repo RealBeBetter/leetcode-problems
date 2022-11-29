@@ -1,6 +1,6 @@
 package T2001_2500;
 
-import java.util.Stack;
+import common.ListNode;
 
 /**
  * @ author : Real
@@ -17,17 +17,7 @@ import java.util.Stack;
  * 链接：https://leetcode-cn.com/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-
-
 public class MergeTwoSortedLinkedLists_Offer_25 {
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode temp1 = l1, temp2 = l2;

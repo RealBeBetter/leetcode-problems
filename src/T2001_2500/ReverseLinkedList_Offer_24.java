@@ -1,9 +1,12 @@
 package T2001_2500;
 
+import common.ListNode;
+
 /**
  * @ author : Real
  * @ date : 2021/11/5 22:07
- * @ description : 剑指 Offer 24. 反转链表
+ * @ description :
+ * 剑指 Offer 24. 反转链表
  * 定义一个函数，输入一个链表的头节点，反转该链表并输出反转后链表的头节点。
  * 示例:
  * 输入: 1->2->3->4->5->NULL
@@ -15,15 +18,6 @@ package T2001_2500;
  * 链接：https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
-    }
-}
-
 public class ReverseLinkedList_Offer_24 {
     public ListNode reverseList(ListNode head) {
         if (head == null) {

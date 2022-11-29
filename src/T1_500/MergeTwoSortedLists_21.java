@@ -1,5 +1,7 @@
 package T1_500;
 
+import common.ListNode;
+
 /**
  * @ author : Real
  * @ date : 2021/11/6 18:43
@@ -19,7 +21,7 @@ package T1_500;
  * 两个链表的节点数目范围是 [0, 50]
  * -100 <= Node.val <= 100
  * l1 和 l2 均按 非递减顺序 排列
- *
+ * <p>
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/merge-two-sorted-lists
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
