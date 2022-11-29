@@ -51,9 +51,14 @@ package T1_500;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class IntegerToRoman_12 {
-    //     I可以放在V(5) 和X(10) 的左边，来表示 4 和 9。
-//     X可以放在L(50) 和C(100) 的左边，来表示 40 和90。
-//     C可以放在D(500) 和M(1000) 的左边，来表示400 和900。
+    /**
+     * I可以放在V(5) 和X(10) 的左边，来表示 4 和 9。
+     * X可以放在L(50) 和C(100) 的左边，来表示 40 和90。
+     * C可以放在D(500) 和M(1000) 的左边，来表示400 和900。
+     *
+     * @param num 数字
+     * @return Roman字符
+     */
     public String intToRoman(int num) {
         // 按照优先级从高到低遍历即可
         final String num1 = "I";
@@ -70,48 +75,74 @@ public class IntegerToRoman_12 {
         final String num900 = "CM";
         final String num1000 = "M";
         StringBuilder ans = new StringBuilder();
-//        while (num != 0) {
-//            if (num >= 1000) {
-//                ans.append(num1000.repeat(num / 1000));
-//                num %= 1000;
-//            } else if (num >= 900) {
-//                ans.append(num900.repeat(num / 900));
-//                num %= 900;
-//            } else if (num >= 500) {
-//                ans.append(num500.repeat(num / 500));
-//                num %= 500;
-//            } else if (num >= 400) {
-//                ans.append(num400.repeat(num / 400));
-//                num %= 400;
-//            } else if (num >= 100) {
-//                ans.append(num100.repeat(num / 100));
-//                num %= 100;
-//            } else if (num >= 90) {
-//                ans.append(num90.repeat(num / 90));
-//                num %= 90;
-//            } else if (num >= 50) {
-//                ans.append(num50.repeat(num / 50));
-//                num %= 50;
-//            } else if (num >= 40) {
-//                ans.append(num40.repeat(num / 40));
-//                num %= 40;
-//            } else if (num >= 10) {
-//                ans.append(num10.repeat(num / 10));
-//                num %= 10;
-//            } else if (num >= 9) {
-//                ans.append(num9.repeat(num / 9));
-//                num %= 9;
-//            } else if (num >= 5) {
-//                ans.append(num5.repeat(num / 5));
-//                num %= 5;
-//            } else if (num >= 4) {
-//                ans.append(num4.repeat(num / 4));
-//                num %= 4;
-//            } else if (num >= 1) {
-//                ans.append(num1.repeat(num));
-//                num = 0;
-//            }
-//        }
+        while (num != 0) {
+            if (num >= 1000) {
+                for (int i = 0; i < num / 1000; i++) {
+                    ans.append(num1000);
+                }
+                num %= 1000;
+            } else if (num >= 900) {
+                for (int i = 0; i < num / 900; i++) {
+                    ans.append(num900);
+                }
+                num %= 900;
+            } else if (num >= 500) {
+                for (int i = 0; i < num / 500; i++) {
+                    ans.append(num500);
+                }
+                num %= 500;
+            } else if (num >= 400) {
+                for (int i = 0; i < num / 400; i++) {
+                    ans.append(num400);
+                }
+                num %= 400;
+            } else if (num >= 100) {
+                for (int i = 0; i < num / 100; i++) {
+                    ans.append(num100);
+                }
+                num %= 100;
+            } else if (num >= 90) {
+                for (int i = 0; i < num / 90; i++) {
+                    ans.append(num90);
+                }
+                num %= 90;
+            } else if (num >= 50) {
+                for (int i = 0; i < num / 50; i++) {
+                    ans.append(num50);
+                }
+                num %= 50;
+            } else if (num >= 40) {
+                for (int i = 0; i < num / 40; i++) {
+                    ans.append(num40);
+                }
+                num %= 40;
+            } else if (num >= 10) {
+                for (int i = 0; i < num / 10; i++) {
+                    ans.append(num10);
+                }
+                num %= 10;
+            } else if (num >= 9) {
+                for (int i = 0; i < num / 9; i++) {
+                    ans.append(num9);
+                }
+                num %= 9;
+            } else if (num >= 5) {
+                for (int i = 0; i < num / 5; i++) {
+                    ans.append(num5);
+                }
+                num %= 5;
+            } else if (num >= 4) {
+                for (int i = 0; i < num / 4; i++) {
+                    ans.append(num4);
+                }
+                num %= 4;
+            } else if (num >= 1) {
+                for (int i = 0; i < num / 1; i++) {
+                    ans.append(num1);
+                }
+                num = 0;
+            }
+        }
         return ans.toString();
     }
 }

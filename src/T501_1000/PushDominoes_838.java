@@ -1,5 +1,8 @@
 package T501_1000;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /**
  * @ author : Real
  * @ date : 2021/10/27 21:01
@@ -28,87 +31,115 @@ public class PushDominoes_838 {
     public static String pushDominoes(String dominoes) {
         // 三种情况不会倒下，左右末端未受力，左边的向左右边的向右，受力平衡
         StringBuilder ans = new StringBuilder();
-//        Map<Character, Integer> map = new LinkedHashMap<>(2);
-//        // 判断答案移动位置
-//        int point = 0;
-//
-//        // 判断段首
-//        for (int i = 0; i < dominoes.length(); i++) {
-//            if (dominoes.charAt(i) != '.') {
-//                point = i;
-//                break;
-//            }
-//        }
-//
-//        // 定义第一个index
-//        if (dominoes.charAt(point) == 'L') {
-//            ans.append("L".repeat(point));
-//        } else {
-//            ans.append(".".repeat(point));
-//        }
-//
-//        for (int i = point; i < dominoes.length(); i++) {
-//            char temp = dominoes.charAt(i);
-//            // 判断当前受力情况
-//            if (temp == 'L') {
-//                if (map.get(temp) != null) {
-//                    Integer before = map.get(temp);
-//                    Integer after = i;
-//                    ans.append("L".repeat(after - before));
-//                    point = i;
-//                }
-//                map.put('L', i);
-//            } else if (temp == 'R') {
-//                if (map.get(temp) != null) {
-//                    Integer before = map.get(temp);
-//                    Integer after = i;
-//                    ans.append("R".repeat(after - before));
-//                    point = i;
-//                }
-//                map.put('R', i);
-//            } else if (temp == '.') {
-//                continue;
-//            }
-//
-//            if (map.size() == 2) {
-//                Character[] characters = new Character[2];
-//                int flag = 0;
-//                for (Character character : map.keySet()) {
-//                    characters[flag++] = character;
-//                }
-//                int smallIndex = map.get(characters[0]);
-//                int bigIndex = map.get(characters[1]);
-//                if (characters[0] == 'L' && characters[1] == 'R') {
-//                    ans.append("L");
-//                    ans.append(".".repeat(bigIndex - smallIndex - 1));
-//                } else if (characters[0] == 'R' && characters[1] == 'L') {
-//                    if ((bigIndex - smallIndex - 1) % 2 == 0) {
-//                        ans.append("R");
-//                        ans.append("R".repeat((bigIndex - smallIndex - 1) / 2));
-//                        ans.append("L".repeat((bigIndex - smallIndex - 1) / 2));
-//                    } else {
-//                        ans.append("R");
-//                        ans.append("R".repeat((bigIndex - smallIndex - 1) / 2));
-//                        ans.append(".");
-//                        ans.append("L".repeat((bigIndex - smallIndex - 1) / 2));
-//                    }
-//                }
-//                map.remove(characters[0]);
-//                point = bigIndex;
-//            }
-//
-//        }
-//
-//        // 判断尾部
-//        char c = dominoes.charAt(point);
-//        if (c == 'R') {
-//            ans.append("R".repeat(dominoes.length() - point));
-//        } else if (c == 'L') {
-//            ans.append("L");
-//            ans.append(".".repeat(dominoes.length() - point - 1));
-//        } else {
-//            ans.append(".".repeat(dominoes.length() - point));
-//        }
+        Map<Character, Integer> map = new LinkedHashMap<>(2);
+        // 判断答案移动位置
+        int point = 0;
+
+        // 判断段首
+        for (int i = 0; i < dominoes.length(); i++) {
+            if (dominoes.charAt(i) != '.') {
+                point = i;
+                break;
+            }
+        }
+
+        // 定义第一个index
+        if (dominoes.charAt(point) == 'L') {
+            for (int i = 0; i < point; i++) {
+                ans.append("L");
+            }
+        } else {
+            for (int i = 0; i < point; i++) {
+                ans.append(".");
+            }
+        }
+
+        for (int i = point; i < dominoes.length(); i++) {
+            char temp = dominoes.charAt(i);
+            // 判断当前受力情况
+            if (temp == 'L') {
+                if (map.get(temp) != null) {
+                    Integer before = map.get(temp);
+                    Integer after = i;
+                    for (int i1 = 0; i1 < after - before; i1++) {
+                        ans.append("L");
+                    }
+                    point = i;
+                }
+                map.put('L', i);
+            } else if (temp == 'R') {
+                if (map.get(temp) != null) {
+                    Integer before = map.get(temp);
+                    Integer after = i;
+                    for (int i1 = 0; i1 < after - before; i1++) {
+                        ans.append("R");
+                    }
+                    point = i;
+                }
+                map.put('R', i);
+            } else if (temp == '.') {
+                continue;
+            }
+
+            if (map.size() == 2) {
+                Character[] characters = new Character[2];
+                int flag = 0;
+                for (Character character : map.keySet()) {
+                    characters[flag++] = character;
+                }
+                int smallIndex = map.get(characters[0]);
+                int bigIndex = map.get(characters[1]);
+                if (characters[0] == 'L' && characters[1] == 'R') {
+                    ans.append("L");
+
+                    int num = bigIndex - smallIndex - 1;
+                    for (int i1 = 0; i1 < num; i1++) {
+                        ans.append(".");
+                    }
+                } else if (characters[0] == 'R' && characters[1] == 'L') {
+                    int repeatCount = (bigIndex - smallIndex - 1) / 2;
+                    if ((bigIndex - smallIndex - 1) % 2 == 0) {
+                        ans.append("R");
+                        for (int i1 = 0; i1 < repeatCount; i1++) {
+                            ans.append("R");
+                        }
+                        for (int i1 = 0; i1 < repeatCount; i1++) {
+                            ans.append("L");
+                        }
+                    } else {
+                        ans.append("R");
+                        for (int i1 = 0; i1 < repeatCount; i1++) {
+                            ans.append("R");
+                        }
+                        ans.append(".");
+                        for (int i1 = 0; i1 < repeatCount; i1++) {
+                            ans.append("L");
+                        }
+                    }
+                }
+                map.remove(characters[0]);
+                point = bigIndex;
+            }
+
+        }
+
+        // 判断尾部
+        char c = dominoes.charAt(point);
+        int count = dominoes.length() - point;
+        if (c == 'R') {
+            for (int i = 0; i < count; i++) {
+                ans.append("R");
+            }
+        } else if (c == 'L') {
+            ans.append("L");
+            for (int i = 0; i < count - 1; i++) {
+                ans.append(".");
+            }
+        } else {
+            for (int i = 0; i < count; i++) {
+                ans.append(".");
+            }
+        }
 
         return ans.toString();
     }
