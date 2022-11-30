@@ -1,6 +1,6 @@
 package T1_500;
 
-import java.util.List;
+import common.ListNode;
 
 /**
  * @author : Real
