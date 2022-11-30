@@ -1,4 +1,4 @@
-package weekly_competition.week319;
+package weekly_competition.date2022_11.week319;
 
 /**
  * 给你一个四舍五入到两位小数的非负浮点数 celsius 来表示温度，以 摄氏度（Celsius）为单位。

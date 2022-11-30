@@ -1,4 +1,4 @@
-package weekly_competition.week320;
+package weekly_competition.date2022_11.week320;
 
 /**
  * 给你一个下标从 0 开始的正整数数组 nums 。请你找出并统计满足下述条件的三元组 (i, j, k) 的数目：

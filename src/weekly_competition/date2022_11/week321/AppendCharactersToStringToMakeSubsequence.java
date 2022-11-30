@@ -1,4 +1,4 @@
-package weekly_competition.week321;
+package weekly_competition.date2022_11.week321;
 
 /**
  * 追加字符以获得子序列

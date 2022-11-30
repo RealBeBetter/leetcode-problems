@@ -1,4 +1,4 @@
-package weekly_competition.week321;
+package weekly_competition.date2022_11.week321;
 
 /**
  * 给你一个正整数 n ，找出满足下述条件的 中枢整数 x ：

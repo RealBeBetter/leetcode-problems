@@ -1,4 +1,4 @@
-package weekly_competition.week317;
+package weekly_competition.date2022_10.week317;
 
 /**
  * 给你两个正整数 n 和 target 。

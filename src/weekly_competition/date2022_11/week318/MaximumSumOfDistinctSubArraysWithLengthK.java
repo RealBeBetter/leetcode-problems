@@ -1,8 +1,6 @@
-package weekly_competition.week318;
+package weekly_competition.date2022_11.week318;
 
-import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**

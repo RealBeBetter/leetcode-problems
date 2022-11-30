@@ -1,4 +1,4 @@
-package weekly_competition.week320;
+package weekly_competition.date2022_11.week320;
 
 import java.util.*;
 

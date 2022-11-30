@@ -1,4 +1,4 @@
-package weekly_competition.week319;
+package weekly_competition.date2022_11.week319;
 
 /**
  * 最小公倍数为 K 的子数组数目

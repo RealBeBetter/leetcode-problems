@@ -1,4 +1,4 @@
-package weekly_competition.week316;
+package weekly_competition.date2022_10.week316;
 
 /**
  * https://leetcode.cn/contest/weekly-contest-316/problems/determine-if-two-events-have-conflict/

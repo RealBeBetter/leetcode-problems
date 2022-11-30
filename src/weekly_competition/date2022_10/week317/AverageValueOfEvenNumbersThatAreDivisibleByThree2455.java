@@ -1,11 +1,11 @@
-package weekly_competition.week317;
+package weekly_competition.date2022_10.week317;
 
 /**
  * 给你一个由正整数组成的整数数组 nums ，返回其中可被 3 整除的所有偶数的平均值。
  * <p>
  * 注意：n 个元素的平均值等于 n 个元素 求和 再除以 n ，结果 向下取整 到最接近的整数。
  * <p>
- * 
+ *
  * <p>
  * 示例 1：
  * <p>

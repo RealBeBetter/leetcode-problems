@@ -1,4 +1,4 @@
-package weekly_competition.week318;
+package weekly_competition.date2022_11.week318;
 
 import java.util.PriorityQueue;
 
