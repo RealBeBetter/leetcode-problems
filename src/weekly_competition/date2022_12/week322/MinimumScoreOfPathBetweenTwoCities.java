@@ -1,5 +1,8 @@
 package weekly_competition.date2022_12.week322;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 6255. 两个城市间路径的最小分数 显示英文描述
  * 给你一个正整数 n ，表示总共有 n 个城市，城市从 1 到 n 编号。
@@ -41,12 +44,64 @@ public class MinimumScoreOfPathBetweenTwoCities {
 
     /**
      * 通过的节点最多的路径，求出路径中最小的 distance 值
+     * 并查集+哈希表
      *
      * @param n     目标节点
      * @param roads 路径，格式为 [1,2,2],[1,3,4] 前两者表示节点编号，最后一个值表示 distance 值
      * @return 节点最小数
      */
     public int minScore(int n, int[][] roads) {
-        return 0;
+        Map<Integer, Integer> map = new HashMap<>();
+        UnionFind uf = new UnionFind(n + 1);
+        for (int[] r : roads) {
+            uf.union(r[0], r[1]);
+        }
+        for (int[] r : roads) {
+            int z = uf.find(r[0]);
+            if (!map.containsKey(z)) map.put(z, Integer.MAX_VALUE);
+            map.put(z, Math.min(map.get(z), r[2]));
+        }
+        return map.get(uf.find(1));
+    }
+}
+
+
+class UnionFind {
+    int[] root;
+    int[] rank;
+
+    public UnionFind(int size) {
+        root = new int[size];
+        rank = new int[size];
+        for (int i = 0; i < size; i++) {
+            root[i] = i;
+            rank[i] = 1;
+        }
+    }
+
+    public int find(int x) {
+        if (x == root[x]) {
+            return x;
+        }
+        return root[x] = find(root[x]);
+    }
+
+    public void union(int x, int y) {
+        int rootX = find(x);
+        int rootY = find(y);
+        if (rootX != rootY) {
+            if (rank[rootX] > rank[rootY]) {
+                root[rootY] = rootX;
+            } else if (rank[rootX] < rank[rootY]) {
+                root[rootX] = rootY;
+            } else {
+                root[rootY] = rootX;
+                rank[rootX] += 1;
+            }
+        }
+    }
+
+    public boolean connected(int x, int y) {
+        return find(x) == find(y);
     }
 }
