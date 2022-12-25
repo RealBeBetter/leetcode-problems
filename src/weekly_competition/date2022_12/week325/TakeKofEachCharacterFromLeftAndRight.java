@@ -1,7 +1,5 @@
 package weekly_competition.date2022_12.week325;
 
-import java.util.Arrays;
-
 /**
  * 6270. 每种字符至少取 K 个
  * 给你一个由字符 'a'、'b'、'c' 组成的字符串 s 和一个非负整数 k 。
@@ -39,21 +37,17 @@ public class TakeKofEachCharacterFromLeftAndRight {
      * @return int
      */
     public int takeCharacters(String s, int k) {
-        int[] count = new int[3];
-        for (char c : s.toCharArray()) {
-            count[c - 'a']++;
+        int left = 0, right = s.length() - 1, min = 0;
+        int[] map = new int[3];
+        for (; left < s.length() && map[0] < k | map[1] < k | map[2] < k; min = ++left) {
+            map[s.charAt(left) - 'a']++;
         }
-        boolean presentNoReachK = Arrays.stream(count)
-                .filter(countNum -> countNum < k)
-                .findAny().isPresent();
-        if (presentNoReachK) {
-            return -1;
+        for (; left > 0; min = Math.min(min, s.length() - right + left - 1)) {
+            for (map[s.charAt(--left) - 'a']--; right >= 0 && map[s.charAt(left) - 'a'] < k; right--) {
+                map[s.charAt(right) - 'a']++;
+            }
         }
-        int res = 0;
-        for (int j : count) {
-            res += (j - k) / 2 + k;
-        }
-        return res;
+        return map[0] < k | map[1] < k | map[2] < k ? -1 : min;
     }
 
 }
