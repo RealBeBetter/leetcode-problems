@@ -42,12 +42,12 @@ import java.util.Set;
  * @author Real
  * Date: 2022/11/6 10:50
  */
-public class MaximumSumOfDistinctSubArraysWithLengthK {
+public class MaximumSubarraySum {
 
     public static void main(String[] args) {
         int[] nums = {1, 1, 1, 7, 8, 9};
         int k = 3;
-        MaximumSumOfDistinctSubArraysWithLengthK test = new MaximumSumOfDistinctSubArraysWithLengthK();
+        MaximumSubarraySum test = new MaximumSubarraySum();
         System.out.println(test.maximumSubarraySum(nums, k));
     }
 

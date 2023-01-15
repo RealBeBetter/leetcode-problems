@@ -31,10 +31,10 @@ package weekly_competition.date2023_01.week328;
  * @author wei.song
  * @since 2023/1/15 22:02
  */
-public class DifferenceBetweenElementSumAndDigitSumOfArray {
+public class DifferenceOfSum {
 
     public static void main(String[] args) {
-        DifferenceBetweenElementSumAndDigitSumOfArray test = new DifferenceBetweenElementSumAndDigitSumOfArray();
+        DifferenceOfSum test = new DifferenceOfSum();
         int[] array = {1, 15, 6, 3};
         System.out.println(test.differenceOfSum(array));
     }

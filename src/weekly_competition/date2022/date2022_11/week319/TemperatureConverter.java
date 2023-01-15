@@ -29,7 +29,7 @@ package weekly_competition.date2022.date2022_11.week319;
  * @author Real
  * Date: 2022/11/13 10:46
  */
-public class TempratureConverter {
+public class TemperatureConverter {
 
     public static void main(String[] args) {
 

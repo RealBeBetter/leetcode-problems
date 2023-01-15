@@ -43,12 +43,12 @@ import java.util.Arrays;
  * @author Real
  * Date: 2022/11/6 10:34
  */
-public class ApplyOperationsToAnArray {
+public class ApplyOperations {
 
     public static void main(String[] args) {
         int[] nums = {1, 2, 2, 1, 1, 0};
         int[] nums2 = {0, 1};
-        ApplyOperationsToAnArray test = new ApplyOperationsToAnArray();
+        ApplyOperations test = new ApplyOperations();
         System.out.println(Arrays.toString(test.applyOperations(nums)));
     }
 

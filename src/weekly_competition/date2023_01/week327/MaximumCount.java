@@ -30,7 +30,7 @@ package weekly_competition.date2023_01.week327;
  * @author wei.song
  * @since 2023/1/8 11:58
  */
-public class MaximumCountOfPositiveIntegerAndNegativeInteger {
+public class MaximumCount {
 
     /**
      * 最大数

@@ -46,13 +46,13 @@ import java.util.PriorityQueue;
  * @author Real
  * Date: 2022/11/6 16:39
  */
-public class TotalCostToHireKWorkers {
+public class TotalCost {
 
     public static void main(String[] args) {
         int[] costs = {17, 12, 10, 2, 7, 2, 11, 20, 8};
         int candidates = 4;
         int k = 3;
-        TotalCostToHireKWorkers test = new TotalCostToHireKWorkers();
+        TotalCost test = new TotalCost();
         System.out.println(test.totalCost(costs, k, candidates));
     }
 
