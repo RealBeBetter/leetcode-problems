@@ -43,9 +43,9 @@ import java.util.LinkedList;
  */
 public class LruCache {
 
-    private Integer capacity;
-    private LinkedList<Integer> cacheKeys;
-    private LinkedHashMap<Integer, Integer> cache;
+    private final Integer capacity;
+    private final LinkedList<Integer> cacheKeys;
+    private final LinkedHashMap<Integer, Integer> cache;
 
     /**
      * Your LRUCache object will be instantiated and called as such:
