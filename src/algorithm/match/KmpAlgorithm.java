@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
  * @author wei.song
  * @since 2022-10-17 12:55
  */
-public class KMPAlgorithm {
+public class KmpAlgorithm {
 
     public static void main(String[] args) {
         String source = "ABCDABC";
@@ -60,6 +60,9 @@ public class KMPAlgorithm {
      * "ABCDA"的前缀为[A, AB, ABC, ABCD]，后缀为[BCDA, CDA, DA, A]，共有元素为"A"，长度为1；
      * "ABCDAB"的前缀为[A, AB, ABC, ABCD, ABCDA]，后缀为[BCDAB, CDAB, DAB, AB, B]，共有元素为"AB"，长度为2；
      * "ABCDABD"的前缀为[A, AB, ABC, ABCD, ABCDA, ABCDAB]，后缀为[BCDABD, CDABD, DABD, ABD, BD, D]，共有元素的长度为0。
+     *
+     * @param source 源字符串
+     * @return {@link String}
      */
     private static String findCommonStr(String source) {
         int length = source.length();
@@ -74,6 +77,7 @@ public class KMPAlgorithm {
             prefixList.add(prefix.toString());
             suffixList.add(source.substring(j));
         }
+
         List<String> commonStr = prefixList.stream().filter(suffixList::contains).collect(Collectors.toList());
         int max = 0;
         String maxStr = "";
