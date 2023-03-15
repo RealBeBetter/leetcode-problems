@@ -1,4 +1,4 @@
-package problems.leet1_500;
+package introduction.array.change;
 
 /**
  * @author Real
