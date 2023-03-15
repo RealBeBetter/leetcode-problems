@@ -39,8 +39,8 @@ public class Permutations {
         List<List<Integer>> nextPermutes = new ArrayList<>();
         for (List<Integer> currentPermute : currentPermutes) {
             for (int num : nums) {
-                List<Integer> nextPermute = new ArrayList<>(currentPermute);
-                if (!nextPermute.contains(num)) {
+                if (!currentPermute.contains(num)) {
+                    List<Integer> nextPermute = new ArrayList<>(currentPermute);
                     nextPermute.add(num);
                     nextPermutes.add(nextPermute);
                 }
