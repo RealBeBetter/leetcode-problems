@@ -19,11 +19,41 @@ package introduction.array.change;
  */
 public class NonDecreasingArray {
 
-    public boolean checkPossibility(int[] nums) {
+    public static void main(String[] args) {
+        System.out.println(checkPossibility(new int[]{3, 4, 2, 3}));
+    }
+
+    public static boolean checkPossibility(int[] nums) {
         // 前面的数字 > 后面的数字，找到该数字，并查找长度
+        if (nums == null || nums.length == 0) {
+            return false;
+        }
 
+        if (nums.length == 1) {
+            return true;
+        }
 
-        return false;
+        int flag = 0;
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] <= nums[i + 1]) {
+                continue;
+            }
+            // 要变成递增序列
+            flag++;
+            if (i == 0) {
+                nums[i] = nums[i + 1];
+            } else {
+                if (nums[i + 1] >= nums[i - 1]) {
+                    // 1 3 2
+                    nums[i] = nums[i - 1];
+                } else {
+                    // 3 4 2
+                    nums[i + 1] = nums[i];
+                }
+            }
+        }
+
+        return flag <= 1;
     }
 
 }
