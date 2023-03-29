@@ -1,5 +1,7 @@
 package plan.search;
 
+import common.TreeNode;
+
 /**
  * @author Real
  * @since 2023/3/12 11:05
@@ -30,23 +32,4 @@ public class MergeTrees {
         return newNode;
     }
 
-}
-
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode() {
-    }
-
-    TreeNode(int val) {
-        this.val = val;
-    }
-
-    TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
 }
