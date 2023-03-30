@@ -22,10 +22,16 @@ public class ReverseLinkedList {
 
     public static void main(String[] args) {
         ReverseLinkedList test = new ReverseLinkedList();
-        int[] array = {1, 2, 3, 4, 5};
-        ListNode listNode = ListNode.initList(array);
-        ListNode node = test.reverseList(listNode);
-        ListNode.printList(node);
+        int[] array1 = {1, 2, 3, 4, 5};
+        ListNode listNode1 = ListNode.initList(array1);
+        ListNode node1 = test.reverseList(listNode1);
+        ListNode.printList(node1);
+
+        System.out.println("second solution:");
+        int[] array2 = {1, 2, 3, 4, 5};
+        ListNode listNode2 = ListNode.initList(array2);
+        ListNode node2 = test.reverseListNode(listNode2);
+        ListNode.printList(node2);
     }
 
 
@@ -33,10 +39,10 @@ public class ReverseLinkedList {
         if (head == null) {
             return null;
         }
-        // 1 2 3 4 5
+
         // 原链表中的前一个与后一个
         ListNode pre = null;
-        ListNode nex = null;
+        ListNode nex;
         while (head != null) {
             nex = head.next;
             head.next = pre;
@@ -44,6 +50,27 @@ public class ReverseLinkedList {
             head = nex;
         }
         return pre;
+    }
+
+    public ListNode reverseListNode(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+
+        ListNode ans = null;
+        while (head != null) {
+            if (ans == null) {
+                ans = new ListNode(head.val);
+            } else {
+                ListNode tempHead = new ListNode(head.val);
+                tempHead.next = ans;
+                ans = tempHead;
+            }
+
+            head = head.next;
+        }
+
+        return ans;
     }
 
 }
