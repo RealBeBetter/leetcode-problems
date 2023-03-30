@@ -33,11 +33,14 @@ public class MinimumOperationsMakeElementsEqual {
 
         Arrays.sort(nums);
         int length = nums.length;
+        long[] prefixSum = new long[length + 1];
         List<Long> ans = new ArrayList<>();
-        int[] prefixSum = getPrefixSum(nums);
+        for (int i = 0; i < length; i++) {
+            prefixSum[i + 1] = prefixSum[i] + nums[i];
+        }
+
         for (int query : queries) {
-            int insertPoint = Arrays.binarySearch(nums, query);
-            int index = insertPoint >= 0 ? insertPoint : Math.abs(insertPoint) - 1;
+            int index = getLowerBound(nums, query);
             long pre = (long) query * index - prefixSum[index];
             long aft = prefixSum[length] - prefixSum[index] - (long) query * (length - index);
             ans.add(pre + aft);
@@ -46,13 +49,24 @@ public class MinimumOperationsMakeElementsEqual {
         return ans;
     }
 
-    private static int[] getPrefixSum(int[] nums) {
-        int length = nums.length;
-        int[] prefix = new int[length + 1];
-
-        for (int i = 0; i < length; i++) {
-            prefix[i + 1] = prefix[i] + nums[i];
+    private static int getLowerBound(int[] nums, int target) {
+        // 开区间 (left, right)
+        int left = -1, right = nums.length;
+        // 区间不为空
+        while (left + 1 < right) {
+            // 循环不变量：
+            // nums[left] < target
+            // nums[right] >= target
+            int mid = left + (right - left) / 2;
+            if (nums[mid] < target) {
+                // 范围缩小到 (mid, right)
+                left = mid;
+            } else {
+                // 范围缩小到 (left, mid)
+                right = mid;
+            }
         }
-        return prefix;
+        return right;
     }
+
 }
