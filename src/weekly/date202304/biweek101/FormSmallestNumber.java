@@ -1,4 +1,4 @@
-package weekly.date202303.biweek101;
+package weekly.date202304.biweek101;
 
 /**
  * 6327. 从两个数字数组里生成最小数字

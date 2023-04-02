@@ -9,7 +9,7 @@ package hot100;
 public class RotateImage {
 
     /**
-     * 旋转 n*n 的数组，组成两种
+     * 旋转 n*n 的数组 90°，旋转两次解决
      *
      * @param matrix 矩阵
      */
