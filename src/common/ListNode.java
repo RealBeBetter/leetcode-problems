@@ -1,5 +1,8 @@
 package common;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author Real
  * Date: 2022/11/30 0:55
@@ -31,9 +34,11 @@ public class ListNode {
     }
 
     public static void printList(ListNode head) {
+        List<Integer> list = new ArrayList<>();
         while (head != null) {
-            System.out.println(head.val);
+            list.add(head.val);
             head = head.next;
         }
+        System.out.println(list);
     }
 }
