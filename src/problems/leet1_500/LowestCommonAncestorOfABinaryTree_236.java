@@ -1,5 +1,7 @@
 package problems.leet1_500;
 
+import common.TreeNode;
+
 /**
  * @ author : Real
  * @ date : 2021/11/16 16:00
@@ -32,16 +34,6 @@ package problems.leet1_500;
  * 链接：https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int x) {
-        val = x;
-    }
-}
-
 public class LowestCommonAncestorOfABinaryTree_236 {
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
