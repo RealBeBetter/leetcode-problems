@@ -1,4 +1,4 @@
-package leetcode75.str;
+package leetcode75.array;
 
 /**
  * 605. 种花问题

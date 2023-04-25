@@ -1,4 +1,4 @@
-package leetcode75.str;
+package leetcode75.string;
 
 /**
  * 151. 反转字符串中的单词

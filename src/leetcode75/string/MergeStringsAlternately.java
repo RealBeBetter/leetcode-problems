@@ -1,4 +1,4 @@
-package leetcode75.str;
+package leetcode75.string;
 
 /**
  * 1768. 交替合并字符串

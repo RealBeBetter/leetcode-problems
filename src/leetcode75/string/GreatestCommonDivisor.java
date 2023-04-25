@@ -1,4 +1,4 @@
-package leetcode75.str;
+package leetcode75.string;
 
 /**
  * 1071. 字符串的最大公因子
