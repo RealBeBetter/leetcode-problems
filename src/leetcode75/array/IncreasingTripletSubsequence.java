@@ -22,7 +22,7 @@ public class IncreasingTripletSubsequence {
 
         // 左边最小值，右边最大值，构建前缀数组
         int length = nums.length;
-        // left[i] 表示 [0, i-1] 中的最小值， right[i] 表示 [i, length-1] 中的最大值
+        // left[i] 表示 [0, i-1] 中的最小值， right[i] 表示 [i+1, length-1] 中的最大值
         int[] left = new int[length], right = new int[length];
         left[0] = Integer.MAX_VALUE;
         right[length - 1] = Integer.MIN_VALUE;
