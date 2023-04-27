@@ -10,44 +10,39 @@ public class LongestSubarrayDeletingOne {
         LongestSubarrayDeletingOne test = new LongestSubarrayDeletingOne();
         // 5
         System.out.println(test.longestSubarray(new int[]{0, 1, 1, 1, 0, 1, 1, 0, 1}));
+        System.out.println(test.longestSubarray(new int[]{1, 1, 0, 1}));
     }
 
     /**
      * 删除一个元素之后，最长连续为 1 的子数组长度
+     * 要素：定义好各种情况，想好比对的时机
      *
      * @param nums 数组
      * @return int
      */
     public int longestSubarray(int[] nums) {
-        int max = 0;
-        int left = 0;
-
-        int zeroIndex = -1;
+        int max = 0, left = 0, right = 0;
         boolean hasZero = false;
-        int tempLength = 0;
-        for (int right = 0; right < nums.length; right++) {
+        while (right < nums.length) {
+            // 计算两者之间的差距，因为要去掉一个数字
             if (nums[right] == 1) {
-                tempLength++;
-                continue;
-            }
-
-            hasZero = true;
-            if (zeroIndex == -1) {
-                zeroIndex = right;
+                // 符合条件的时候才进行对比
+                max = Math.max(max, right - left);
+                right++;
             } else {
-                max = Math.max(max, tempLength);
-                tempLength = 0;
-                // 这里是发现第二个 0 元素
-                left = zeroIndex + 1;
-                right = left;
-                zeroIndex = -1;
+                if (!hasZero) {
+                    max = Math.max(max, right - left);
+                    right++;
+                    hasZero = true;
+                } else {
+                    left++;
+                    right = left;
+                    hasZero = false;
+                }
             }
-
-            max = Math.max(max, tempLength);
         }
 
-        max = Math.max(max, tempLength);
-        return hasZero ? max : nums.length - 1;
+        return max;
     }
 
 }
