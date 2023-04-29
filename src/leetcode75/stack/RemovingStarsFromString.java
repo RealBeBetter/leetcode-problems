@@ -3,6 +3,8 @@ package leetcode75.stack;
 import java.util.Stack;
 
 /**
+ * 2390. 从字符串中移除星号
+ *
  * @author wei.song
  * @since 2023/4/29 22:01
  */
