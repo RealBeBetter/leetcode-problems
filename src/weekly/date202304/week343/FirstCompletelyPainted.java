@@ -1,9 +1,7 @@
 package weekly.date202304.week343;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 6342. 找出叠涂元素
@@ -13,51 +11,38 @@ import java.util.Set;
  */
 public class FirstCompletelyPainted {
 
+    public static void main(String[] args) {
+        FirstCompletelyPainted test = new FirstCompletelyPainted();
+        int[] array = {1, 4, 5, 2, 6, 3};
+        int[][] mat = {{4, 3, 5}, {1, 2, 6}};
+        System.out.println(test.firstCompleteIndex(array, mat));
+    }
+
     public int firstCompleteIndex(int[] arr, int[][] mat) {
-        int m = mat.length;
-        int n = mat[0].length;
+        int rowCount = mat.length;
+        int columnCount = mat[0].length;
+        Map<Integer, int[]> numberIndexMap = new HashMap<>((int) (rowCount * columnCount / 0.75 + 1));
 
-        List<Set<Integer>> rows = new ArrayList<>();
-        List<Set<Integer>> columns = new ArrayList<>();
-
-        for (int[] row : mat) {
-            Set<Integer> temp = new HashSet<>();
-            for (int j = 0; j < n; j++) {
-                temp.add(row[j]);
+        // 获取单行或者单列最先被填满的数组中的下标位置
+        for (int i = 0; i < rowCount; i++) {
+            for (int j = 0; j < columnCount; j++) {
+                int num = mat[i][j];
+                numberIndexMap.put(num, new int[]{i, j});
             }
-            rows.add(temp);
         }
 
-        for (int i = 0; i < n; i++) {
-            Set<Integer> column = new HashSet<>();
-            for (int j = 0; j < m; j++) {
-                column.add(mat[j][i]);
-            }
-            columns.add(column);
-        }
-
-        // 保存暂时需要的数据
+        Map<Integer, Integer> rows = new HashMap<>((int) (rowCount / 0.75 + 1));
+        Map<Integer, Integer> columns = new HashMap<>((int) (columnCount / 0.75 + 1));
         for (int i = 0; i < arr.length; i++) {
-            Integer number = arr[i];
+            int[] positions = numberIndexMap.get(arr[i]);
+            int row = positions[0];
+            int column = positions[1];
+            rows.put(row, rows.getOrDefault(row, 0) + 1);
+            columns.put(column, columns.getOrDefault(column, 0) + 1);
 
-            for (Set<Integer> row : rows) {
-                boolean remove = row.remove(number);
-                if (row.isEmpty()) {
-                    return i;
-                }
-                if (remove) {
-                    break;
-                }
-            }
-
-            for (Set<Integer> column : columns) {
-                boolean remove = column.remove(number);
-                if (column.isEmpty()) {
-                    return i;
-                }
-                if (remove) {
-                    break;
-                }
+            // 这里需要反过来
+            if (rows.get(row) == columnCount || columns.get(column) == rowCount) {
+                return i;
             }
         }
 
