@@ -72,4 +72,26 @@ public class ReverseLinkedListScope {
         }
     }
 
+
+    public ListNode reverseBetweenSecond(ListNode head, int left, int right) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+
+        ListNode pre = dummy;
+        for (int i = 0; i < left - 1; i++) {
+            pre = pre.next;
+        }
+
+        // 头插法，将后面的节点不断移动到pre的下一个节点完成翻转
+        ListNode cur = pre.next;
+        for (int i = 0; i < right - left; i++) {
+            ListNode next = cur.next;
+            cur.next = next.next;
+            next.next = pre.next;
+            pre.next = next;
+        }
+
+        return dummy.next;
+    }
+
 }
