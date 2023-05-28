@@ -2,6 +2,7 @@ package weekly.date202305.biweek105;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 6394. 字符串中的额外字符
@@ -13,17 +14,20 @@ public class ExtraCharacters {
 
     public int minExtraChar(String s, String[] dictionary) {
         int length = s.length();
-        List<String> words = Arrays.asList(dictionary);
+        int[] dp = new int[length + 1];
+        List<String> dict = Arrays.stream(dictionary).distinct().collect(Collectors.toList());
 
-        StringBuilder ans = new StringBuilder();
-        StringBuilder temp = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            char c = s.charAt(i);
-            temp.append(c);
+        for (int i = 1; i <= length; i++) {
+            dp[i] = dp[i - 1] + 1;
+            for (int j = 0; j < i; j++) {
+                String substring = s.substring(j, i);
+                if (dict.contains(substring)) {
+                    dp[i] = Math.min(dp[i], dp[j]);
+                }
+            }
         }
 
-
-        return 0;
+        return dp[length];
     }
 
 }
