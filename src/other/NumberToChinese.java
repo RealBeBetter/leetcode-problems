@@ -12,7 +12,7 @@ public class NumberToChinese {
 
     public static void main(String[] args) {
         NumberToChinese test = new NumberToChinese();
-        int number = 102034500;
+        int number = 102034501;
         System.out.println(test.convertNumberToChinese(number));
     }
 
@@ -81,9 +81,6 @@ public class NumberToChinese {
             }
 
             if (temp < current && String.valueOf(temp).length() < String.valueOf(current).length()) {
-                if (ans.length() != 0) {
-                    ans.append(sizeMap.get(0));
-                }
                 continue;
             }
             int num = temp / current;
@@ -91,7 +88,15 @@ public class NumberToChinese {
                 ans.append(sizeMap.get(num));
             }
             ans.append(entry.getValue());
-            temp -= num == 0 ? current : num * current;
+            if (temp - num == 0) {
+                temp = current;
+            } else {
+                int next = temp - num * current;
+                if (Math.abs(String.valueOf(next).length() - String.valueOf(temp).length()) > 1) {
+                    ans.append(sizeMap.get(0));
+                }
+                temp = next;
+            }
         }
 
         return ans.toString();
