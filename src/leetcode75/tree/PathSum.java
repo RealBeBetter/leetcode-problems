@@ -2,9 +2,6 @@ package leetcode75.tree;
 
 import common.TreeNode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * 437. 路径总和 III
  * https://leetcode.cn/problems/path-sum-iii
@@ -14,21 +11,23 @@ import java.util.List;
  */
 public class PathSum {
 
-    public int pathSum(TreeNode root, int targetSum) {
+    public int pathSum(TreeNode root, int sum) {
         if (root == null) {
             return 0;
         }
 
-        List<List<Integer>> nodes = new ArrayList<>();
-        return 1;
+        int result = countPath(root, sum);
+        int a = pathSum(root.left, sum);
+        int b = pathSum(root.right, sum);
+        return result + a + b;
     }
 
-    private List<Integer> getPathList(TreeNode root, List<Integer> pathNodes) {
+    public int countPath(TreeNode root, long sum) {
         if (root == null) {
-            return pathNodes;
+            return 0;
         }
-
-        return null;
+        sum = sum - root.val;
+        int result = sum == 0 ? 1 : 0;
+        return result + countPath(root.left, sum) + countPath(root.right, sum);
     }
-
 }
