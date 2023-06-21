@@ -1,5 +1,6 @@
 package structure.trie;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,20 +14,21 @@ public class TrieNode {
     /**
      * 根节点，存储无意义的 char 即可
      */
-    private TrieNode root = new TrieNode('/');
+    private final TrieNode root = new TrieNode('/');
 
     private char data;
 
     private boolean isEndingChar;
 
     /**
-     * 子节点.这里不使用数组进行映射，直接使用 Map
+     * 子节点，这里不使用数组进行映射，直接使用 Map
      */
     private Map<Character, TrieNode> children;
 
 
     public TrieNode() {
         this.isEndingChar = false;
+        this.children = Collections.emptyMap();
     }
 
     public TrieNode(char data) {
