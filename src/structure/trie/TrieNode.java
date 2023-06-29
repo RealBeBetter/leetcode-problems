@@ -33,6 +33,7 @@ public class TrieNode {
 
     public TrieNode(char data) {
         this.data = data;
+        this.children = Collections.emptyMap();
     }
 
     public TrieNode(char data, boolean isEndingChar, Map<Character, TrieNode> children) {
@@ -60,6 +61,7 @@ public class TrieNode {
             if (!children.containsKey(c)) {
                 TrieNode newNode = new TrieNode(c);
                 children.put(c, newNode);
+                parent.children = children;
             }
             parent = children.get(c);
         }
