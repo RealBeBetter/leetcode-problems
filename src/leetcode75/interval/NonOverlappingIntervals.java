@@ -1,4 +1,4 @@
-package leetcode75;
+package leetcode75.interval;
 
 import java.util.Arrays;
 import java.util.Comparator;
