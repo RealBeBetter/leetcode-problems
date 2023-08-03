@@ -28,6 +28,7 @@ public class CyclePrintCountdownLatch {
         latch2.await();
         // printThird.run() outputs "third". Do not change or remove this line.
         printThird.run();
+        latch1.countDown();
     }
 
     public static void main(String[] args) throws InterruptedException {
