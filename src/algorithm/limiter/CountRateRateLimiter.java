@@ -42,10 +42,8 @@ public class CountRateRateLimiter implements RateLimiter {
         if (oldSeconds != currentSeconds) {
             // 原剩余的许可数量
             AtomicInteger oldPermits = helper.getReference();
-            // cas 修改 同时修改版本，并且扣减数量
-            if (helper.compareAndSet(oldPermits,
-                    // 新许可的数量为  numAcceptablePerSecond - n
-                    new AtomicInteger(numAcceptablePerSecond - n), oldSeconds, currentSeconds)) {
+            // cas 修改 同时修改版本，并且扣减数量；新许可的数量为 numAcceptablePerSecond - n，避免为负数
+            if (helper.compareAndSet(oldPermits, new AtomicInteger(numAcceptablePerSecond - n), oldSeconds, currentSeconds)) {
                 // cas 成功 那么说明成功 拿到令牌
                 return true;
             }
@@ -56,9 +54,9 @@ public class CountRateRateLimiter implements RateLimiter {
 
         // 这里判断了一下 当前秒还是相等的，避免由于 gc 在第一个if中停留太久
         // 比如第一秒线程A和B进入到第一个if，线程B成功了，但是线程A失败了，并且暂停了2s，出来的时候时间已经是3s了，我们不能让1s的请求占用3s时候的令牌数
-        return currentSeconds() == currentSeconds &&
+        return currentSeconds() == currentSeconds
                 // 最后这里存在问题 如果在0.99999s的请求来到这里，但是时间来到1s，这个cas才成功，那么0.99999s的请求将打过来。导致1s的qps大于max
-                helper.getReference().addAndGet(-n) >= 0;
+                && helper.getReference().addAndGet(-n) >= 0;
     }
 
     private static int currentSeconds() {

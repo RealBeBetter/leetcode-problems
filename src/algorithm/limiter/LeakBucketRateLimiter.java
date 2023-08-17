@@ -11,13 +11,18 @@ import java.util.concurrent.atomic.AtomicLong;
 public class LeakBucketRateLimiter implements RateLimiter {
 
     // 桶的大小
-    private static final long CAPACITY = 10;
+    private final long CAPACITY;
     // 流出速率，每秒两个
-    private static final long RATE = 2;
+    private final long RATE;
     //开始时间
     private static long startTime = System.currentTimeMillis();
     //桶中剩余的水
     private static final AtomicLong WATER = new AtomicLong();
+
+    public LeakBucketRateLimiter(long capacity, long rate) {
+        CAPACITY = capacity;
+        RATE = rate;
+    }
 
     @Override
     public synchronized boolean acquire(int count) {
