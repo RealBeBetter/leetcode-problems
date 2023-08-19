@@ -9,12 +9,12 @@ public class ArrayStack {
     /**
      * 保存栈中的元素数据
      */
-    private String[] items;
+    private final String[] items;
 
     /**
      * 容量
      */
-    private int capacity;
+    private final int capacity;
 
     /**
      * 栈当前的大小
