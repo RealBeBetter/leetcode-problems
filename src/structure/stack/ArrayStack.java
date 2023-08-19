@@ -6,19 +6,8 @@ package structure.stack;
  */
 public class ArrayStack {
 
-    /**
-     * 保存栈中的元素数据
-     */
     private final String[] items;
-
-    /**
-     * 容量
-     */
     private final int capacity;
-
-    /**
-     * 栈当前的大小
-     */
     private int size;
 
     public ArrayStack(int capacity) {
@@ -58,14 +47,8 @@ public class ArrayStack {
         return items[size - 1];
     }
 
-
     public boolean isEmpty() {
         return size == 0;
-    }
-
-
-    public boolean isFull() {
-        return size == capacity;
     }
 
     public static void main(String[] args) {
@@ -75,8 +58,6 @@ public class ArrayStack {
         stack.push("3");
         stack.push("4");
         stack.push("5");
-
-        System.out.println(stack.isFull());
 
         System.out.println(stack.pop());
         System.out.println(stack.pop());
