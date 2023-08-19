@@ -23,13 +23,16 @@ public class LinkedListStack {
 
     private final ListNode dummyHead;
     private ListNode tail;
+    private int size;
 
     public LinkedListStack() {
+        this.size = 0;
         this.tail = null;
         this.dummyHead = new ListNode();
     }
 
     public void push(String item) {
+        size++;
         if (tail == null) {
             tail = new ListNode(dummyHead, null, item);
             dummyHead.next = tail;
@@ -47,6 +50,7 @@ public class LinkedListStack {
             return null;
         }
 
+        size--;
         if (tail.prev == dummyHead) {
             String value = tail.value;
             tail = null;
@@ -79,6 +83,8 @@ public class LinkedListStack {
         stack.push("4");
         stack.push("5");
 
+        System.out.println(stack.size);
+
         System.out.println(stack.pop());
         System.out.println(stack.pop());
         stack.push("12345");
@@ -86,6 +92,9 @@ public class LinkedListStack {
         System.out.println(stack.pop());
         System.out.println(stack.pop());
         System.out.println(stack.pop());
+        System.out.println(stack.pop());
+
+        System.out.println(stack.size);
     }
 
 }
