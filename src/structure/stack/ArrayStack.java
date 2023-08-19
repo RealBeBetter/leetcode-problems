@@ -22,6 +22,10 @@ public class ArrayStack {
     private int size;
 
     public ArrayStack(int capacity) {
+        if (capacity <= 0) {
+            throw new IllegalArgumentException("capacity must be greater than 0");
+        }
+
         this.capacity = capacity;
         this.items = new String[capacity];
         this.size = 0;
