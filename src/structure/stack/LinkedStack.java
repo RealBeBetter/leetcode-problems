@@ -4,7 +4,7 @@ package structure.stack;
  * @author wei.song
  * @since 2023/8/19 16:21
  */
-public class LinkedListStack {
+public class LinkedStack {
 
     public static class ListNode {
         private ListNode prev;
@@ -25,7 +25,7 @@ public class LinkedListStack {
     private ListNode tail;
     private int size;
 
-    public LinkedListStack() {
+    public LinkedStack() {
         this.size = 0;
         this.tail = null;
         this.dummyHead = new ListNode();
@@ -76,7 +76,7 @@ public class LinkedListStack {
     }
 
     public static void main(String[] args) {
-        LinkedListStack stack = new LinkedListStack();
+        LinkedStack stack = new LinkedStack();
         stack.push("3");
         stack.push("1");
         stack.push("2");
