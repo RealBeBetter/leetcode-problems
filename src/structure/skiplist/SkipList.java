@@ -13,7 +13,7 @@ public class SkipList {
     /**
      * 最原始的链表头
      */
-    private Node head;
+    private final Node head;
     /**
      * 最终的跳表结构，包含原始链表和索引链表
      */
