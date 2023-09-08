@@ -17,7 +17,7 @@ public class Permutation {
      * @return {@link List}<{@link String}>
      */
     private List<String> getPermutationOfString(String str) {
-        if (str == null || str.length() == 0) {
+        if (str == null || str.isEmpty()) {
             return Collections.emptyList();
         }
 
@@ -31,7 +31,7 @@ public class Permutation {
 
     private void permutation(String str, String prefix, List<String> result) {
         // 字符串为空时，说明已经遍历完所有位置
-        if (str.length() == 0) {
+        if (str.isEmpty()) {
             // 将当前结果添加到列表中
             result.add(prefix);
             return;
