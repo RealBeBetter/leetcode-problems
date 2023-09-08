@@ -9,7 +9,6 @@ import java.util.*;
 public class PrintTree {
 
     static class Node {
-
         int id;
         int parentId;
         String name;
@@ -59,7 +58,7 @@ public class PrintTree {
 
     static Set<Integer> isVisited = new HashSet<>();
 
-    static String grid = "";
+    static StringBuilder grid = new StringBuilder();
 
     private static void print(List<Node> nodeList) {
         for (Node node : nodeList) {
@@ -81,7 +80,7 @@ public class PrintTree {
             if (isVisited.contains(curId)) {
                 continue;
             }
-            grid = "";
+            grid = new StringBuilder();
             print(curId, 0);
         }
     }
@@ -90,9 +89,9 @@ public class PrintTree {
         Node curNode = idToNodeMap.get(id);
         System.out.println(grid + curNode.getName());
         for (int i = 0; i < level; i++) {
-            grid += "  ";
+            grid.append("  ");
         }
-        String temp = grid;
+        StringBuilder temp = grid;
         isVisited.add(id);
         List<Node> children = idToChildrenMap.get(id);
         for (Node node : children) {
