@@ -6,7 +6,7 @@ import java.util.Map;
 
 /**
  * 208. 实现 Trie (前缀树)
- * https://leetcode.cn/problems/implement-trie-prefix-tree
+ * <a href="https://leetcode.cn/problems/implement-trie-prefix-tree">...</a>
  *
  * @author wei.song
  * @since 2023/6/29 16:58
@@ -29,7 +29,7 @@ public class Trie {
     }
 
     public void insert(String word) {
-        if (word == null || word.length() == 0) {
+        if (word == null || word.isEmpty()) {
             return;
         }
 
@@ -63,7 +63,7 @@ public class Trie {
     }
 
     private Trie getLastTrie(String word) {
-        if (word == null || word.length() == 0) {
+        if (word == null || word.isEmpty()) {
             return null;
         }
 

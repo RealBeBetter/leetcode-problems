@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 /**
  * 1268. 搜索推荐系统
- * https://leetcode.cn/problems/search-suggestions-system
+ * <a href="https://leetcode.cn/problems/search-suggestions-system">...</a>
  *
  * @author wei.song
  * @since 2023/6/29 16:36
