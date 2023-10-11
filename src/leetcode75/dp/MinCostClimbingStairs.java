@@ -2,7 +2,7 @@ package leetcode75.dp;
 
 /**
  * 746. 使用最小花费爬楼梯
- * https://leetcode.cn/problems/min-cost-climbing-stairs
+ * <a href="https://leetcode.cn/problems/min-cost-climbing-stairs">...</a>
  *
  * @author wei.song
  * @since 2023/6/18 10:15

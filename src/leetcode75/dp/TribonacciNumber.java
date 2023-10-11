@@ -2,7 +2,7 @@ package leetcode75.dp;
 
 /**
  * 1137. 第 N 个泰波那契数
- * https://leetcode.cn/problems/n-th-tribonacci-number
+ * <a href="https://leetcode.cn/problems/n-th-tribonacci-number">...</a>
  *
  * @author wei.song
  * @since 2023/6/18 10:09
