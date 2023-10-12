@@ -38,9 +38,10 @@ public class LongestSubstringWithoutRepeatingCharacters {
      * @return 最长长度
      */
     public int lengthOfLongestSubstring(String str) {
-        if (str == null || str.length() == 0) {
+        if (str == null || str.isEmpty()) {
             return 0;
         }
+
         int res = 0;
         List<Character> list = new LinkedList<>();
         char[] chars = str.toCharArray();
