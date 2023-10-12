@@ -1,10 +1,19 @@
 package algorithm.sort;
 
+import java.util.Arrays;
+
 /**
  * @author Real
  * @since 2023/6/4 18:36
  */
 public class BubbleSort {
+
+    public static void main(String[] args) {
+        BubbleSort test = new BubbleSort();
+        int[] array = {1, 2, 3, 4, 8, 1, 1, 5};
+        test.bubbleSort(array);
+        System.out.println(Arrays.toString(array));
+    }
 
     /**
      * 冒泡排序，array 表示数组

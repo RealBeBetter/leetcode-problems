@@ -1,10 +1,19 @@
 package algorithm.sort;
 
+import java.util.Arrays;
+
 /**
  * @author Real
  * @since 2023/6/4 18:52
  */
 public class InsertionSort {
+
+    public static void main(String[] args) {
+        InsertionSort test = new InsertionSort();
+        int[] array = {1, 2, 3, 4, 8, 1, 1, 5};
+        test.insertionSort(array);
+        System.out.println(Arrays.toString(array));
+    }
 
     /**
      * 插入排序
