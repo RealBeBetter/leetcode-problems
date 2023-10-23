@@ -1,6 +1,5 @@
 package weekly.date202310.week368;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,6 +8,12 @@ import java.util.Map;
  * @since 2023/10/22 10:42
  */
 public class MinGroupsForValidAssignment {
+
+    public static void main(String[] args) {
+        MinGroupsForValidAssignment test = new MinGroupsForValidAssignment();
+        int[] nums = {3, 2, 3, 2, 3};
+        System.out.println(test.minGroupsForValidAssignment(nums));
+    }
 
     public int minGroupsForValidAssignment(int[] nums) {
         if (nums == null || nums.length == 0) {
@@ -20,23 +25,24 @@ public class MinGroupsForValidAssignment {
             numberToCountMap.put(num, numberToCountMap.getOrDefault(num, 0) + 1);
         }
 
-        // TODO 判断 count 之间的相差
-        Collection<Integer> values = numberToCountMap.values();
-        int minCount = values.stream().min(Integer::compareTo).orElse(0);
-
-        int groupCount = 0;
-        for (int i = 1; i < minCount; i++) {
-            for (int count : values) {
-                if (count > i) {
-                    // 分不断的情况下，是否会导致 minCount 刷新
-                    if (count % i == i + 1 || count % i == i) {
-                        groupCount += count / i + 1;
-                    }
-                }
-            }
+        int length = nums.length;
+        for (int cnt : numberToCountMap.values()) {
+            length = Math.min(length, cnt);
         }
 
-        return groupCount;
+        for (; ; length--) {
+            int ans = 0;
+            for (int cnt : numberToCountMap.values()) {
+                if (cnt / length < cnt % length) {
+                    ans = 0;
+                    break;
+                }
+                ans += (cnt + length) / (length + 1);
+            }
+            if (ans > 0) {
+                return ans;
+            }
+        }
     }
 
 }
