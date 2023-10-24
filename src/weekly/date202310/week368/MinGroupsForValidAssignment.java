@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 2910. 合法分组的最少组数
+ * <a href="https://leetcode.cn/problems/minimum-number-of-groups-to-create-a-valid-assignment/">...</a>
+ *
  * @author wei.song
  * @since 2023/10/22 10:42
  */

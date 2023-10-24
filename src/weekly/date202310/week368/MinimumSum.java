@@ -1,6 +1,9 @@
 package weekly.date202310.week368;
 
 /**
+ * 2908. 元素和最小的山形三元组 I
+ * <a href="https://leetcode.cn/problems/minimum-sum-of-mountain-triplets-i/">...</a>
+ *
  * @author wei.song
  * @since 2023/10/22 10:33
  */

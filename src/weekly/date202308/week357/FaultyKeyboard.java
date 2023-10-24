@@ -11,7 +11,7 @@ public class FaultyKeyboard {
 
     public String finalString(String s) {
         // 优化：偶数个 i 连续出现需要消除
-        if (s == null || s.length() == 0) {
+        if (s == null || s.isEmpty()) {
             return s;
         }
 
