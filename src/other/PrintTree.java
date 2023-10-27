@@ -33,7 +33,14 @@ public class PrintTree {
     }
 
     public static void main(String[] args) {
-        List<Node> nodeList = Arrays.asList(new Node(1, 0, "AA"), new Node(2, 1, "BB"), new Node(3, 1, "CC"), new Node(4, 3, "DD"), new Node(5, 3, "EE"), new Node(6, 2, "FF"), new Node(7, 2, "GG"), new Node(8, 4, "HH"), new Node(9, 5, "II"), new Node(10, 0, "JJ"), new Node(11, 10, "KK"), new Node(12, 10, "LL"), new Node(13, 12, "MM"), new Node(14, 13, "NN"), new Node(15, 14, "OO"));
+        List<Node> nodeList = Arrays.asList(new Node(1, 0, "AA"),
+                new Node(2, 1, "BB"), new Node(3, 1, "CC"),
+                new Node(4, 3, "DD"), new Node(5, 3, "EE"),
+                new Node(6, 2, "FF"), new Node(7, 2, "GG"),
+                new Node(8, 4, "HH"), new Node(9, 5, "II"),
+                new Node(10, 0, "JJ"), new Node(11, 10, "KK"),
+                new Node(12, 10, "LL"), new Node(13, 12, "MM"),
+                new Node(14, 13, "NN"), new Node(15, 14, "OO"));
         print(nodeList);
     }
 
