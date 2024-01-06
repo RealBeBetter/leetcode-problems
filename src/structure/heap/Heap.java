@@ -9,12 +9,12 @@ public class Heap {
     /**
      * 数据。这里用数组存储堆的数据
      */
-    private int[] data;
+    private final int[] data;
 
     /**
      * 最大容量，允许存储的最大容量值
      */
-    private int maxCapacity;
+    private final int maxCapacity;
 
     /**
      * 已经存储的数据大小，这里的大小并不等于 data.length
