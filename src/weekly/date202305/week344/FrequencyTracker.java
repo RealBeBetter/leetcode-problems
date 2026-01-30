@@ -39,8 +39,8 @@ public class FrequencyTracker {
             frequencyMap.put(1, onceNumbers);
         } else {
             List<Integer> lessNumbers = frequencyMap.get(frequency - 1);
-            lessNumbers.remove(new Integer(number));
-            if (lessNumbers.size() == 0) {
+            lessNumbers.remove(number);
+            if (lessNumbers.isEmpty()) {
                 frequencyMap.remove(frequency - 1);
             } else {
                 frequencyMap.put(frequency - 1, lessNumbers);
@@ -63,8 +63,8 @@ public class FrequencyTracker {
         Integer frequency = numberMap.get(number);
 
         List<Integer> moreNumbers = frequencyMap.get(frequency);
-        moreNumbers.remove(new Integer(number));
-        if (moreNumbers.size() == 0) {
+        moreNumbers.remove(number);
+        if (moreNumbers.isEmpty()) {
             frequencyMap.remove(frequency);
         } else {
             frequencyMap.put(frequency, moreNumbers);

@@ -13,6 +13,7 @@ import java.util.Queue;
  */
 public class ReorderRoutes {
 
+    @SuppressWarnings("unchecked")
     public int minReorder(int n, int[][] connections) {
         // 到达当前点，to 值
         List<Integer>[] in = new LinkedList[n];
